@@ -6,7 +6,7 @@
  function windowResized(){
    resizeCanvas(windowWidth, windowHeight);
  }
-  let size=50
+  let size=1
   let x=0
   let y=100
   let z=1
@@ -14,6 +14,11 @@
  function draw(){
    background(160, 192, 255);
    x=(x+z)% y;
+   if(keyIsPressed){
+    z=2;
+   } else{
+    z=1;
+   }
      if (x<y/2){
     size=x+50 ;
    }else{
