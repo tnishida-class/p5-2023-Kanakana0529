@@ -11,10 +11,10 @@
   let cycle=100//変化の周期
   let increment=1//増加割合
 
- function draw(){
+ function draw(){ 
    background(160, 192, 255);
    count=(count+increment)% cycle;//countを0-100での範囲で増加させる関数です
-   if(keyIsPressed){//レベル2の条件を満たすものです。レベル１がレベル2はできればこれはここを足すだけです、ちなみに、（）内をいじればいろんな条件つけれると思います、特にこのキーを押したら早くなる・・・とか
+   if(keyIsPressed){//レベル2の条件を満たすものです。レベル１できればこれはここを足すだけです、ちなみに、（）内をいじればいろんな条件つけれると思います、特にこのキーを押したら早くなる・・・とか
     increment=2;
    } else{
     increment=1;
