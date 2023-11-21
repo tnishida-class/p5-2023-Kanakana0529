@@ -6,10 +6,12 @@ function setup(){
   nostoroke();
   for(let i = 0; i < 12; i++){
     let theta = TWO_PI * i / 12;
-    let x = 100 + cos(theta) * 50;
-    let y = 100 + sin(theta) * 50;
+    let x =width/2 + cos(theta) * width/4;
+    let y = height/2 + sin(theta) * height/4;
+    console.log(x);
+
     fill (255,204,0);
-    star(x, y, 10);
+    star(x, y, width/20);
   }
 }
 function star(cx, cy, r){
