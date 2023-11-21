@@ -12,7 +12,7 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
-  if (frameCount % 60===0) {
+  if (frameCount % 40===0) {
     const b ={
       x: random(width),
       y: random(height),
