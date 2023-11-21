@@ -12,13 +12,13 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
-  if (frameCount % 40===0) {
+  if (frameCount % 20===0) {
     const b ={
       x: random(width),
       y: random(height),
-      size: random(10,30),
-      vx: random(-2, 2),
-      vy: random(-2, 2)
+      size: random(10,200),
+      vx: random(-3, 3),
+      vy: random(-3, 3)
     };
     balls.push(b);
   }
