@@ -7,6 +7,21 @@ function setup() {
 function draw() {
   background(160, 192, 255);
 
+  fill(139, 69, 19); // 茶色
+  rect(180, 400, 40, 100);
+
+  // 木の葉（手動で描画）
+  fill(34, 139, 34); // 緑
+  beginShape();
+  vertex(200, 150); // 上部中央
+  vertex(250, 300); // 右上
+  vertex(225, 300); // 右中
+  vertex(250, 400); //　右下
+  vertex(150, 400); //　左下
+  vertex(175, 300); // 左中
+  vertex(150, 300); // 左上
+  endShape(CLOSE);
+
   // 雪の生成
   if (frameCount % 20 === 0) {
     const b = {
@@ -14,7 +29,7 @@ function draw() {
       y: 0,
       size: random(10, 50),
       vx: random(-2, 2),
-      vy: random(0, 3)
+      vy: random(0, 4)
     };
     balls.push(b);
   }
@@ -36,20 +51,8 @@ function draw() {
   }
 
   
-  fill(139, 69, 19); // 茶色
-  rect(180, 400, 40, 100);
+  
 
-  // 木の葉（手動で描画）
-  fill(34, 139, 34); // 緑
-  beginShape();
-  vertex(200, 150); // 上部中央
-  vertex(250, 300); // 右上
-  vertex(225, 300); // 右中
-  vertex(250, 400); //　右下
-  vertex(150, 400); //　左下
-  vertex(175, 300); // 左中
-  vertex(150, 300); // 左上
-  endShape(CLOSE);
 }
 
 function windowResized() {
