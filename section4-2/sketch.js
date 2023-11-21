@@ -3,7 +3,7 @@
 // 練習問題：何も操作しなくてもボールが湧いてくる機能を追加しよう
 
 let balls;
-let size;
+
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
