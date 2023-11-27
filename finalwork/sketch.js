@@ -1,5 +1,10 @@
+alert('Aを押すと雪が大きくなり、Lを押すと雪が小さくなります') ///setup, draw以外の関数
+
+
+
 let balls = [];
 let snowpiles = [];
+let snowsize = 20
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -8,16 +13,29 @@ function setup() {
 function draw() {
   background(160, 192, 255);
 
+  
+  if (keyIsDown("A".charCodeAt(0))){
+    snowsize += 5;
+  } else if(keyIsDown("L".charCodeAt(0))){
+    snowsize -= 1;
+  }
+
   if (frameCount % 20 === 0) {
     const b = {
       x: random(width),
       y: 0,
-      size: random(10, 50),
+      size: snowsize,
       vx: random(-2, 2),
-      vy: random(0, 3)
+      vy: random(0, 2)
     };
     balls.push(b);
-  }
+
+  if(snowsize<0){snowsize=1}
+  if(snowsize>40){snowsize=40}
+  
+ }
+   
+  
 
   // 雪の描画と移動
   for (let i = 0; i < balls.length; i++) {
@@ -109,10 +127,20 @@ fill(0);
   vertex(150, 300); // 左上
   endShape(CLOSE);
 
-  
-  
-}
-  
+  noStroke()
+  fill(255, 204, 0);
+  beginShape();
+  for(let z = 0; z < 5; z++){
+    let theta = TWO_PI * z * 2 / 5 - HALF_PI;
+    let x = width/4.18 + cos(theta) * 50;
+    //画面横幅の２分の１が星の中心のx座標→「2」を変更してクリスマスツリーの頂点に合わせる
+    let y = windowHeight/5 + sin(theta) * 50;
+    //画面縦幅の２分の１が星の中心のy座標→「２」を変更してクリスマスツリーの頂点に合わせる
+    vertex(x, y);
+   }
+  endShape(CLOSE);
+  }
+
 
 
 
