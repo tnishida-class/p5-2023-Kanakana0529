@@ -111,23 +111,40 @@ fill(0);
   arc(width*47/64,height*10/20,40,20,0,PI);
 
 }
+// 木の葉（手動で描画）
+fill(34, 139, 34); // 緑
+beginShape();
 
-  fill(139, 69, 19); // 茶色
-  rect(180, 400, 40, 100);
+let x=windowWidth/4.18
+let y=windowHeight/5
+vertex(x, y); // 上部中央
+vertex(x*1.25, y*2); // 右上
+vertex(x*1.125, y*2); // 右中
+vertex(x*1.25, y*400/150); //　右下
+vertex(x*150/200, y*400/150); //　左下
+vertex(x*175/200, y*2); // 左中
+vertex(x*150/200, y*2); // 左上
+endShape(CLOSE);
 
-  // 木の葉（手動で描画）
-  fill(34, 139, 34); // 緑
+fill(139, 69, 19); // 茶色
+rect(x*183/200, y*400/150,(x*1.25-x*150/200)/3 , 100);
+
+
+noStroke()
+  fill(255, 204, 0);
   beginShape();
-  vertex(200, 150); // 上部中央
-  vertex(250, 300); // 右上
-  vertex(225, 300); // 右中
-  vertex(250, 400); //　右下
-  vertex(150, 400); //　左下
-  vertex(175, 300); // 左中
-  vertex(150, 300); // 左上
+  for(let z = 0; z < 5; z++){
+    let theta = TWO_PI * z * 2 / 5 - HALF_PI;
+    let r= windowWidth/4.18+ cos(theta) * 50;
+    //画面横幅の２分の１が星の中心のx座標→「2」を変更してクリスマスツリーの頂点に合わせる
+    let k= windowHeight/5+ sin(theta) * 50;
+    //画面縦幅の２分の１が星の中心のy座標→「２」を変更してクリスマスツリーの頂点に合わせる
+    vertex(r, k);
+   }
   endShape(CLOSE);
+  }
 
-  noStroke()
+ noStroke()
   fill(255, 204, 0);
   beginShape();
   for(let z = 0; z < 5; z++){
@@ -139,7 +156,8 @@ fill(0);
     vertex(x, y);
    }
   endShape(CLOSE);
-  }
+ 
+  
 
 
 
