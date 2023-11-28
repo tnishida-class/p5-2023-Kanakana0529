@@ -9,6 +9,7 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
+  line(0,235,width,235)
   ellipse(x, y, 50);
   if(keyIsDown(LEFT_ARROW)){ x -= 5; }
   if(keyIsDown(RIGHT_ARROW)){ x += 5; }
@@ -16,6 +17,16 @@ function draw(){
   if(keyIsDown(DOWN_ARROW)){ y += 5; }
   if(keyIsDown("A".charCodeAt(0))){ x+= 10; }
   if(keyIsDown(" ".charCodeAt(0))){ x-= 10; }
+  if(x > width){x=width}
+  if(x < 0){x=0}
+  if(y > 200){y=200}
+  if(y<210) {y=210}
+  
+
+
+  
+  fill(125)
+  text("↑地面",width*0.5, 270)
 }
 
 // イベントハンドラを使用するパターン
